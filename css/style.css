@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+main {
+    width: 100%;
+    height: 500px;
+    margin: 200px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+h1 {
+    width: 90%;
+    margin: 10px auto;
+    font-size: 2em;
+    text-align: center;
+}
+
+span {
+    position: absolute;
+    top: 50%;
+    font-size: 60px;
+
+    color: #000;
+    left: .5%;
+    z-index: 1;
+
+}
+
+span:nth-of-type(2) {
+    left: 98%;
+    text-align: right;
+}
+
+section {
+    width: 90%;
+    height: 400px;
+    background-color: #f4f4f4;
+    margin: 10px auto;
+    display: flex;
+    justify-content: left;
+    overflow-x: auto;
+}
+
+
+
+div {
+    min-width: calc(90% - 71.5%);
+    position: relative;
+    left: 0;
+    padding-top: 200px;
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 10px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.822);
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.slider-item {
+    position: absolute;
+
+}
+
+div .indirim {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    background-color: rgba(255, 0, 0, 0.801);
+    color: #ddd;
+    padding: 5px 10px;
+    font-weight: 400;
+    z-index: 100;
+}
+
+div . {
+    position: absolute;
+    left: 0;
+    top: 41px;
+    background-color: black;
+    color: #ddd;
+    padding: 5px 10px;
+    font-weight: 400;
+    z-index: 100;
+}
+
+.slider-item__img {
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    z-index: 1;
+    width: 50%;
+    height: 65%;
+
+
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+
+
+}
+
+.slide-title {
+    color: #111;
+    font-size: 12px;
+    margin-top: 20px;
+    text-decoration: none;
+    margin-top: 20px;
+
+}
+
+
+.params_ul {
+    list-style: none;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.params_ul-weight {
+    list-style: none;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    position: absolute;
+    bottom: 3%;
+    left: 25%;
+}
+
+.pro-price {
+    position: absolute;
+    bottom: 8%;
+    left: 30%;
+    display: inline;
+
+}
+
+.pro-price-2 {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    color: rgb(160, 160, 160);
+    margin: 0 15px;
+    text-decoration: line-through;
+}
+
+.Likes {
+    position: absolute;
+    left: 0;
+    top: 13%;
+    background-color: rgb(245, 245, 245);
+    color: red;
+    padding: 10px;
+    font-size: 10;
+    display: inline;
+    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width:750px) {
+    div {
+        min-width: calc(90% - 61.5%);
+    }
+}
+
+@media(max-width:450px) {
+    div {
+        min-width: calc(90% - 51.5%);
+    }
+}
+
+@media(max-width:350px) {
+    div {
+        min-width: calc(90% - 11.5%);
+    }
+}
