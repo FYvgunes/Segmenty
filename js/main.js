@@ -1,4 +1,4 @@
-//Json 
+// Json verileri
 products = [{
     "productId": "PKT-42061",
     "name": "Best of Vinexus 2017 Rotwein (6er-Paket)",
@@ -42,7 +42,8 @@ products = [{
     "imageS": "https://www.vinexus.de/media/image/b6/98/4b/FT-SW-034459a187aaa03bf_200x200.jpg",
     "price": 107.0,
     "priceText": "€107,00",
-    "oldPriceText": "",
+    "oldPriceText": "100.0",
+    "oldPrice": 100.0,
     "category": ["Champagner & Sekt > Art > Champagner"],
     "categories": ["Champagner & Sekt", "Art", "Champagner"],
     "lastUpdateTime": 1518099000624,
@@ -1034,7 +1035,6 @@ products = [{
     "currency": ""
 }]
 //Json End
-
 function discount(price, oldprice) {
     var yuz = 100;
     var toplam = price + oldprice;
@@ -1042,7 +1042,7 @@ function discount(price, oldprice) {
     discouny = Math.floor(discouny);
 
     if (oldprice === NaN) {
-        return "test";
+        return "";
     } else {
 
         return `<p class="indirim"> %${discouny}<p>`
@@ -1060,125 +1060,64 @@ function land(land, region, art) {
 
 }
 
-function price(oldprice) {
+function price(oldprice, price) {
 
-    return oldprice;
+    if (oldprice !== "") {
+        return `<p class="pro-price"> ${price} <p> " " <p class="pro-price-2"> ${oldprice} <p> `
+    } else {
+        return `<p class="pro-price-3"> ${price}<p>`
+    }
+
+
 }
 
 function likes(likecount) {
     if (likecount === "") {
-        return "";
-    } else
-
-    {
+        return;
+    } else {
         return `
-        
-         <p class="Likes" > ${likecount} <i class = "far fa-heart" > </i></p>
-        
+         <p class="Likes"> ${likecount} <i class="far fa-heart"> </i></p>      
         `
-
     }
 
 }
 
 function getproduct(pro) {
-    var test = document.querySelector(".indirim")
+
     return `
-        <div class="app">
-        ${pro.oldPrice ? discount(pro.price,pro.oldPrice):""}<p class="neu">
-        
-        </p >
-        ${pro.params.likeCount ? likes(pro.params.likeCount) : ""}
-       
-             <a href = "${pro.url}" >
-            <img class = "slider-item__img"
+        <div class ="home-slider__item" >
+        ${pro.oldPrice ? discount(pro.price,pro.oldPrice):" "}
+        ${pro.params.likeCount ? likes(pro.params.likeCount) : " "}
+             <a href="${pro.url}">
+            <img class ="slider-item__img"
             src = "${pro.imageS}">
             <br>
             <br>
             <p class="slide-title">${pro.name}</p>
-            
-            <p class="params_ul"> ${
-                pro.params.land ? land(pro.params.land, pro.params.region, pro.params.art) : ""} </p> <br>
 
-                <p class="pro-price">${pro.priceText}</p>
-                <p class = "pro-price-2" > ${pro.oldPriceText ? price(pro.oldPriceText):""} </p>
+            <p class="params_ul"> ${
+                pro.params.land ? land(pro.params.land, pro.params.region, pro.params.art) : " "} </p> <br>
+
+                ${pro.priceText ? price(pro.oldPriceText,pro.priceText):" "} 
                 <p class="params_ul-weight" >${pro.params.basePrice} </p>
 
-            
             </a>
         </div> 
         `
 }
+
+
+
 document.getElementById("app").innerHTML =
-    `
-    ${products.map(getproduct).join()}
-
-    `
-var prev = document.getElementById("prev");
-var next = document.getElementById("next");
-var slider = document.getElementsByTagName('div');
 
 
+    `${products.map(getproduct).join('')}`
 
-prev.addEventListener("click", prevfunction);
-next.addEventListener("click", nextfunction);
+document.getElementById("app2").innerHTML =
 
-var I = 0;
 
-function nextfunction() {
+    `${products.map(getproduct).join('')}`
+document.getElementById("app3").innerHTML =
 
-    I++;
-    console.log(i);
-    for (var i of slider) {
-        if (I == 0) {
-            console.log("test")
-            i.style.left = "0px";
-        }
-        if (I == 1) {
-            i.style.left = "-20%";
-        }
-        if (I == 2) {
-            i.style.left = "-40%";
-        }
-        if (I == 3) {
-            i.style.left = "-60%";
-        }
-        if (I == 4) {
 
-            i.style.left = "-82%";
-        }
-        if (I > 4) {
-            I = 4;
-        }
-
-    }
-}
-
-function prevfunction() {
-
-    I--;
-
-    for (var i of slider) {
-        if (I == 0) {
-            console.log("test")
-            i.style.left = "0px";
-        }
-        if (I == 1) {
-            i.style.left = "-20%";
-        }
-        if (I == 2) {
-            i.style.left = "-40%";
-        }
-        if (I == 3) {
-            i.style.left = "-60%";
-        }
-        if (I == 4) {
-
-            i.style.left = "-82%";
-        }
-        if (I < 0) {
-            I = 0;
-        }
-
-    }
-}
+    `${products.map(getproduct).join('')}`
