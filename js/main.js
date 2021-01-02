@@ -42,8 +42,8 @@ products = [{
     "imageS": "https://www.vinexus.de/media/image/b6/98/4b/FT-SW-034459a187aaa03bf_200x200.jpg",
     "price": 107.0,
     "priceText": "€107,00",
-    "oldPriceText": "100.0",
-    "oldPrice": 100.0,
+    "oldPriceText": "",
+
     "category": ["Champagner & Sekt > Art > Champagner"],
     "categories": ["Champagner & Sekt", "Art", "Champagner"],
     "lastUpdateTime": 1518099000624,
