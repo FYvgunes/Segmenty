@@ -1082,11 +1082,27 @@ function likes(likecount) {
 
 }
 
+function titleneu(nex) {
+
+
+    if (nex === "true") {
+        return `
+         <p class="neu">NEU</p>      
+        `
+    } else {
+        return "";
+
+    }
+
+}
+
 function getproduct(pro) {
 
     return `
         <div class ="home-slider__item" >
         ${pro.oldPrice ? discount(pro.price,pro.oldPrice):" "}
+       
+        ${pro.params.isNew ? titleneu(pro.params.isNew): " "}
         ${pro.params.likeCount ? likes(pro.params.likeCount) : " "}
              <a href="${pro.url}">
             <img class ="slider-item__img"
